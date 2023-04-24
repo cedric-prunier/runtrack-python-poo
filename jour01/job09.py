@@ -23,13 +23,13 @@ class Student:
     def studentEval(self):
         if self.__credits >= 90:
             return "Excellent"
-        if self.__credits >= 90:
+        elif self.__credits >= 80:
             return "Excellent"
-        if self.__credits >= 70:
+        elif self.__credits >= 70:
             return "Bien"
-        if self.__credits >= 60:
+        elif self.__credits >= 60:
             return "Passable"
-        if self.__credits < 60:
+        else:
             return "Insuffisant"
 
 

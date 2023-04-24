@@ -19,7 +19,7 @@ class Rectangle:
 # attribution des valeurs initiales du rectangle
 dimension = Rectangle(10, 5)
 
-# Afficher lopngueur
+# Afficher la longueur
 print("Longueur : ", dimension.get_longueur())
 
 # Modifier longueur

@@ -30,8 +30,8 @@ class Livre:
             return "Ce livre n'est pas disponible pour l'emprunt."
 
     def set_rendre(self):
-        if not self._disponible:
-            self._disponible = True
+        if not self.__disponible:
+            self.__disponible = True
             return "Ce livre a été rendu"
         else:
             return "Ce livre n'a pas été emprunté ou a déjà été rendu"
