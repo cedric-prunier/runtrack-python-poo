@@ -1,46 +1,67 @@
 class Voiture:
-    def __init__(
-        self, marque, modele, annee, kilometrage, reservoir=0, en_marche=False
-    ):
+    def __init__(self, marque, modele, annee, kilometrage):
         self.__marque = marque
         self.__modele = modele
         self.__annee = annee
         self.__kilometrage = kilometrage
-        self.__en_marche = en_marche
-        self.__reservoir = reservoir
+        self.__en_marche = False
+        self.__reservoir = 50
 
     def get_marque(self):
         return self.__marque
 
-    def set_marque(self, nouvelle_marque):
-        self.__marque = nouvelle_marque
+    def set_marque(self, marque):
+        self.__marque = marque
 
     def get_modele(self):
         return self.__modele
 
-    def set_modele(self, nouveau_modele):
-        self.__modele = nouveau_modele
+    def set_modele(self, modele):
+        self.__modele = modele
 
     def get_annee(self):
         return self.__annee
 
-    def set_annee(self, nouvelle_annee):
-        self.__annee = nouvelle_annee
+    def set_annee(self, annee):
+        self.__annee = annee
 
     def get_kilometrage(self):
         return self.__kilometrage
 
-    def set_kilometrage(self, nouveau_kilometrage):
-        self.__kilometrage = nouveau_kilometrage
+    def set_kilometrage(self, kilometrage):
+        self.__kilometrage = kilometrage
 
     def get_en_marche(self):
         return self.__en_marche
 
-    def set_en_marche(self, nouveau):
-        self.__en_marche = self.__en_marche + nouveau
+    def get_reservoir(self):
+        return self.__reservoir
 
-    def set_demarrer(self):
+    def set_reservoir(self, nouveau_reservoir):
+        self.__reservoir = nouveau_reservoir
+
+    def demarrer(self):
+        if self.__verifier_plein() > 5:
+            self.__en_marche = True
+            print("La voiture démarre.")
+        else:
+            print("Le réservoir est presque vide, impossible de démarrer.")
+
+    def arreter(self):
         self.__en_marche = False
+        print("La voiture s'arrête.")
 
-    def set_arreter(self):
-        self.__en_marche = True
+    def __verifier_plein(self):
+        return self.__reservoir
+
+
+# Exemple d'utilisation
+ma_voiture = Voiture("Renault", "Clio", 2021, 10000)
+
+
+ma_voiture.demarrer()  # 50 par défaut
+ma_voiture.set_reservoir(5)
+ma_voiture.demarrer()
+
+ma_voiture.arreter()
+print(ma_voiture.get_en_marche())  # False
